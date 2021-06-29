@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2021 by DoraKaposi (http://jsbin.com/qipiwaz/29/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+  <title>Color Clock</title>
+<style id="jsbin-css">
+html, body {
+  height: 100vh;
+  font-size:16px;
+ 
+}
+
+#clock {
+  text-align: center;
+  color:#ffffff;
+  font-family: 'Courgette', cursive;
+  width: 79%;
+  position: relative;
+  top: 2%;
+  left: 10%;
+  font-size: 4.25rem;
+  margin-top: -2.125rem;
+  border: 5px dotted white;
+}
+h1{
+  text-align: center;
+  color:#ffffff;
+  font-size:2.75rem;
+  font-family: 'Courgette', cursive;
+  position: relative;
+  top: 0%;
+}
+
+img{
+  width: 80%;
+  height: auto;
+  position: relative;
+  top: 4%;
+  left:10%;
+  border-radius: 10px;
+}
+</style>
+</head>
+<body>
+  <h1>Have a nice day!</h1>
+<div id="clock"></div>
+  <img src="https://i.imgur.com/q4KLsPJ.jpeg">
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  if (hours <= 9) {
+    hours = "0" + hours;
+  }
+  if (minutes <= 9) {
+    minutes = "0" + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = "0" + seconds;
+  }
+
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+  var hexColor = '#' + hours + minutes + seconds;
+
+  document.getElementById('clock').innerHTML = clockFace;
+  document.body.style.background = hexColor;
+
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+}
+
+colorClock();
+
+
+
+</script>
+</body>
+</html>
